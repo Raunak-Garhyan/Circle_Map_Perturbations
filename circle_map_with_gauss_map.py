@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# --- PARAMETERS ---
+# PARAMETERS
 K        = 1.0      # nonlinearity strength
 Omega0   = 0.3      # drive for the time series plots
 theta0   = 0.1      # initial phase
@@ -51,7 +51,7 @@ Omegas  = np.linspace(0, 1, M)
 W_orig  = compute_rotation_number(original_step, Omegas, K, N_steps)
 W_mod   = compute_rotation_number(modified_step, Omegas, K, N_steps)
 
-# --- 5) Arnold tongues heatmap parameters ---
+# Arnold tongues heatmap parameters
 K_vals    = np.linspace(0, 1, 80)    # 80 values for K
 Omega_vals = np.linspace(0, 1, 160)  # 160 values for Omega
 N_grid    = 1000                 # iterations per grid point
@@ -65,7 +65,7 @@ for i, Kv in enumerate(K_vals):
             phi = original_step(phi, Om, Kv)
         W_grid[i, j] = phi / N_grid
 
-# --- PLOTTING 2x3 layout ---
+# 2x3 Plot
 fig, axes = plt.subplots(2, 3, figsize=(18, 10))
 ax1, ax2, ax3, ax4, ax5, ax6 = axes.flatten()
 
@@ -105,4 +105,5 @@ ax5.grid(False)
 ax6.axis('off')
 
 plt.tight_layout()
+
 plt.show()
