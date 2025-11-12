@@ -16,11 +16,11 @@ def gauss(x):
 
 #ORIGINAL circle_map step
 def original_step(phi, Omega, K=1.0):
-    return phi + Omega - (K/(2*np.pi)) * np.sin(2*np.pi * (phi % 1))
+    return phi + Omega + (K/(2*np.pi)) * np.sin(2*np.pi * (phi % 1))
 
 #MODIFIED circle_map step
 def modified_step(phi, Omega, K=1.0):
-    base  = Omega - (K/(2*np.pi)) * np.sin(2*np.pi * (phi % 1))
+    base  = Omega + (K/(2*np.pi)) * np.sin(2*np.pi * (phi % 1))
     return phi + base + gauss(phi % 1)
 
 #winding number compute
@@ -107,3 +107,4 @@ ax6.axis('off')
 plt.tight_layout()
 
 plt.show()
+
